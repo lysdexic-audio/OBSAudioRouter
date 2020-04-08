@@ -11,12 +11,23 @@ This is a workaround device for MacOS users of [OBS](https://github.com/obsproje
 > `23:19:17.539: [input_callback]:[device '2882 [4945]'] audio retrieval failed: -50` <br>
 > `23:19:17.550: [input_callback]:[device '2882 [4945]'] audio retrieval failed: -50` <br>
 
-
-
 ## Instructions
 
 First install either [Soundflower](https://github.com/mattingalls/Soundflower/releases/tag/2.0b2)
-or [Existential Audio: BlackHole](https://github.com/ExistentialAudio/BlackHole).
+or [BlackHole](https://github.com/ExistentialAudio/BlackHole).
 
 Download [OBSAudioRouter](https://github.com/lysdexic-audio/OBSAudioRouter/releases)
+
+<img src="https://github.com/lysdexic-audio/OBSAudioRouter/blob/master/OBSAudioRouter.png" width="400">
+
+1. Select your Input Soundcard
+2. Select your Mic channel
+3. Select your Sample rate
+4. Select your Output Soundcard (Soundflower 2ch or Blackhole)
+
+5. Select the same Output card as the Microphone/Auxillary input inside OBS settings
+
+<img src="https://github.com/lysdexic-audio/OBSAudioRouter/blob/master/OBSSettings.png" width="450">
+
+Built with [openFrameworks 10.0](http://www.openframeworks.cc) and [ofxDatGui](https://github.com/braitsch/ofxDatGui)
 
