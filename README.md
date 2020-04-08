@@ -24,7 +24,7 @@ Download [OBSAudioRouter](https://github.com/lysdexic-audio/OBSAudioRouter/relea
  `2. Select your Mic channel` <br>
  `3. Select your Sample rate` <br>
  `4. Select your Output Soundcard (Soundflower 2ch or Blackhole)` <br>
- `5. Select the same Output card as the Microphone/Auxillary input inside OBS settings` <br>
+ `5. Select the same Output card as the **Microphone/Auxillary input inside OBS settings` <br>
 
 <img src="https://github.com/lysdexic-audio/OBSAudioRouter/blob/master/OBSSettings.png" width="450">
 
