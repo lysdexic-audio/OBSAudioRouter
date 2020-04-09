@@ -25,6 +25,8 @@ Download [OBSAudioRouter](https://github.com/lysdexic-audio/OBSAudioRouter/relea
  `3. Select your Sample rate` <br>
  `4. Select your Output Soundcard (Soundflower 2ch or Blackhole)` <br>
  `5. Select the same Output card as the Microphone/Auxillary input inside OBS settings` <br>
+ 
+If you've made an aggregate device to get desktop/system audio bundled with your mic input - you can get all three channels by picking the highest channel in the channel selector. In my case, I route my system audio to channels 2 + 3, with my mic on channel 1 and select "3" in the channel selector on OBSAudioRouter.
 
 <img src="https://github.com/lysdexic-audio/OBSAudioRouter/blob/master/OBSSettings.png" width="450">
 
