@@ -10,7 +10,7 @@ int main( ){
 	// pass in width and height too:
     ofGLFWWindowSettings settings;
     //settings.resizable = false;
-    settings.setSize(655, 768);
+    settings.setSize(745, 768);
 	//ofRunApp(new ofApp());
     ofCreateWindow(settings);
     return ofRunApp(new ofApp);

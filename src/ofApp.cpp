@@ -27,14 +27,22 @@ void ofApp::setup(){
     
     auto devices = inputStream.getDeviceList();
     
+
+    
     vector<string> scOptions;
-    for (int i=0; i<devices.size(); i++)
-    {
-        string device1 = ofSplitString(ofToString(devices[i]), ":")[2];
-        string device2 = ofSplitString(ofToString(devices[i]), ":")[3];
-        string device3 = ofSplitString(ofToString(devices[i]), ":")[4];
-        string device = device1 + device2 + device3;
-        scOptions.push_back(ofToString(device));
+    
+    if(devices.size() > 0) {
+        for (int i=0; i<devices.size(); i++)
+        {
+            //string device1 = ofSplitString(ofToString(devices[i]), ":")[2];
+            //string device2 = ofSplitString(ofToString(devices[i]), ":")[3];
+            //string device3 = ofSplitString(ofToString(devices[i]), ":")[4];
+            string device = ofSplitString(ofToString(devices[i]), "]")[1];
+            //string device = device1 + device2 + device3;
+            scOptions.push_back(ofToString(device) + "]");
+        }
+    } else {
+        
     }
     
     vector<string> srOptions { "44100", "48000", "88200", "96000" };
@@ -42,7 +50,7 @@ void ofApp::setup(){
     // GUI
     gui = new ofxDatGui( ofxDatGuiAnchor::TOP_LEFT );
     gui->addDropdown("SELECT INPUT SOUNDCARD", scOptions);
-    m1 = gui->addMatrix("Channel", 8, true);
+    m1 = gui->addMatrix("Channel", 10, true);
     gui->addDropdown("Sample Rate", srOptions);
     s1 = gui->addSlider("input audio", 0.0f, 1.0f);
     gui->addBreak()->setHeight(50);
@@ -69,7 +77,7 @@ void ofApp::setup(){
     s1->mSliderFill = green;
     s2->mSliderFill = green;
     
-    gui->setWidth(650);
+    gui->setWidth(745);
 }
 
 //--------------------------------------------------------------
@@ -135,17 +143,13 @@ void ofApp::onDropdownEvent(ofxDatGuiDropdownEvent e)
 //--------------------------------------------------------------
 void ofApp::onGuiSliderEvent(ofxDatGuiSliderEvent e)
 {
-//    if (e.target == s1){
-//        m1->setFrequency(s1->getValue());
-//    }   else if (e.target == s2){
-//        m1->setAmplitude(s2->getValue());
-//    }
+
 }
 
 //--------------------------------------------------------------
 void ofApp::update()
 {
-    ofSetWindowShape(650, gui->getHeight());
+    ofSetWindowShape(745, gui->getHeight());
     decibel.currentValue = decibel.smoother->process(decibel.targetValue);
 
     peak.currentValue = peak.smoother->process(peak.targetValue);
@@ -162,21 +166,10 @@ void ofApp::update()
 //--------------------------------------------------------------
 void ofApp::onMatrixEvent(ofxDatGuiMatrixEvent e)
 {
-    //cout << "onMatrixEvent " << e.child << " : " << e.enabled << endl;
-    //cout << "onMatrixEvent " << e.target->getLabel() << " : " << e.target->getSelected().size() << endl;
-
     numChannels = e.child + 1;
     inputStream.stop();
-    //inputStream.close();
     ofSoundStreamClose();
-//    settings.setOutDevice(devices[audioOutDeviceID]);
-//    settings.setOutListener(this);
-//    settings.sampleRate = sampleRate;
     settings.numInputChannels = numChannels;
-//    settings.numOutputChannels = 2;
-//    settings.bufferSize = bufferSize;
-//    inputStream.setup(settings);
-    //inputStream.start();
     inputStream.setup(settings);
     ofSoundStreamStart();
     cout << "Channel Selected: " << numChannels << endl;
@@ -247,17 +240,7 @@ void ofApp::audioOut(ofSoundBuffer & buffer)
 //--------------------------------------------------------------
 void ofApp::keyPressed  (int key)
 {
-    switch(key){
-        case 's':
-            //soundStream.start();
-            break;
-    
-        case 'e':
-            //soundStream.stop();
-            break;
-        default:
-            break; 
-    }
+
 }
 
 //--------------------------------------------------------------
