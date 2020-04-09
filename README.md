@@ -17,6 +17,7 @@ First install either [Soundflower](https://github.com/mattingalls/Soundflower/re
 or [BlackHole](https://github.com/ExistentialAudio/BlackHole).
 
 Download [OBSAudioRouter](https://github.com/lysdexic-audio/OBSAudioRouter/releases)
+*Note: You need to keep OBSAudioRouter.app in the same folder as "data" - this folder contains fonts etc.
 
 <img src="https://github.com/lysdexic-audio/OBSAudioRouter/blob/master/OBSAudioRouter.png" width="400">
 
